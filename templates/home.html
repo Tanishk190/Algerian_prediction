@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fire Weather Data Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+        form {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+        input, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        .radio-group {
+            margin-top: 5px;
+        }
+        .radio-group input {
+            width: auto;
+        }
+        button {
+            margin-top: 20px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<form action="{{ url_for('prediction') }}" method="post">
+    <label>Temperature</label>
+    <input type="text" name="Temperature"  required>
+
+    <label>Relative Humidity (RH)</label>
+   <input type="text" name="RH" required>
+
+    <label>Wind Speed (Ws)</label>
+    <input type="text" name="Ws" required>
+
+    <label>Rain</label>
+   <input type="text" name="Rain" required>
+
+    <label>FFMC</label>
+    <input type="text" name="FFMC" required>
+
+    <label>DMC</label>
+    <input type="text" name="DMC" required>
+
+    <label>ISI</label>
+    <input type="text" name="ISI" required>
+
+    <label>Classes</label>
+    <input type="text" name="Classes" required>
+
+     <label>Region</label>
+    <input type="text" name="Region" required>
+
+   
+
+    <button type="submit" class="btn btn-primary btn-block btn-large ">Predict</button>
+</form>
+<h2>
+    The FWI Prediction is {{results}}
+</h2>
+
+</body>
+</html>
